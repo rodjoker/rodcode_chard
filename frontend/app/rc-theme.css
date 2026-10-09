@@ -1,0 +1,60 @@
+/* Tema compartido de Rodchard: lo usan el editor (.rc) y las páginas de la app (.rc-page).
+   Claro/oscuro según el sistema, igual que el lienzo. */
+.rc, .rc-page {
+  --rc-bg: #e9eeec; --rc-panel: #f7f9f8; --rc-line: #d3dbd8; --rc-ink: #1b2b2a; --rc-muted: #5d716e;
+  --rc-accent: #0b6f8f; --rc-accent-soft: #d8eef5; --rc-flow: #8f2fa6; --rc-paper: #ffffff;
+  --rc-grid: #bcc8c4; --rc-queue: rgba(11, 111, 143, 0.05); --rc-badge: #0b5575;
+  --rc-note: #fbe48a; --rc-note-ink: #4a3d05; --rc-danger: #b3261e; --rc-ok: #1c7a4f; --rc-onaccent: #ffffff;
+  --rc-mono: ui-monospace, 'JetBrains Mono', Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  .rc, .rc-page {
+    --rc-bg: #0f1819; --rc-panel: #162224; --rc-line: #2a3b3d; --rc-ink: #dde9e6; --rc-muted: #8ea5a1;
+    --rc-accent: #55c4e3; --rc-accent-soft: #17343d; --rc-flow: #d98ae9; --rc-paper: #1c2a2c;
+    --rc-grid: #2c3e40; --rc-queue: rgba(85, 196, 227, 0.07); --rc-badge: #1d7396;
+    --rc-note: #6d5f1d; --rc-note-ink: #fbeeb0; --rc-danger: #ff8a80; --rc-ok: #6fd6a3; --rc-onaccent: #06232c;
+  }
+}
+
+.rc *, .rc *::before, .rc *::after, .rc-page *, .rc-page *::before, .rc-page *::after { box-sizing: border-box; }
+.rc button, .rc input, .rc textarea, .rc-page button, .rc-page input { font: inherit; color: inherit; }
+.rc button, .rc-page button { cursor: pointer; }
+.rc :focus-visible, .rc-page :focus-visible { outline: 2px solid var(--rc-accent); outline-offset: 2px; }
+
+/* botones (mismos en editor y dashboard) */
+.rc-btn { display: inline-flex; align-items: center; justify-content: center; background: var(--rc-paper); color: var(--rc-ink);
+  border: 1px solid var(--rc-line); border-radius: 7px; padding: 6px 10px; min-height: 32px; line-height: 1.1;
+  white-space: nowrap; text-decoration: none; }
+.rc-btn:hover:not(:disabled) { border-color: var(--rc-accent); }
+.rc-btn:disabled { opacity: 0.4; cursor: default; }
+.rc-btn.pri { background: var(--rc-accent); border-color: var(--rc-accent); color: var(--rc-onaccent); }
+.rc-btn.dng { color: var(--rc-danger); }
+.rc-brand { display: flex; align-items: center; gap: 8px; font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; }
+.rc-brand svg { flex: none; }
+
+/* páginas de la app */
+.rc-page { min-height: 100vh; min-height: 100dvh; background: var(--rc-bg); color: var(--rc-ink); font-size: 14px; }
+.rc-bar { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 14px; padding: 8px 16px;
+  background: var(--rc-panel); border-bottom: 1px solid var(--rc-line); }
+.rc-bar .grow { flex: 1 1 0; }
+.rc-user { display: inline-flex; align-items: center; gap: 8px; color: var(--rc-muted); text-decoration: none; padding: 5px 8px; border-radius: 6px; min-width: 0; }
+.rc-user:hover { color: var(--rc-ink); background: var(--rc-bg); }
+.rc-chip { font-family: var(--rc-mono); font-size: 11px; text-transform: capitalize; color: var(--rc-muted);
+  border: 1px solid var(--rc-line); border-radius: 999px; padding: 1px 8px; }
+.rc-main { width: min(860px, 100%); margin: 0 auto; padding: 28px 16px 48px; }
+.rc-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+.rc-head h1 { margin: 0; font-size: 20px; letter-spacing: -0.01em; }
+.rc-head .sub { margin: 2px 0 0; color: var(--rc-muted); }
+.rc-list { list-style: none; margin: 18px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.rc-row { display: flex; align-items: center; gap: 12px; background: var(--rc-panel); border: 1px solid var(--rc-line);
+  border-radius: 10px; padding: 10px 12px; }
+.rc-row:hover { border-color: var(--rc-accent); }
+.rc-thumb { flex: none; width: 44px; height: 36px; display: grid; place-items: center; background: var(--rc-paper);
+  border: 1px solid var(--rc-line); border-radius: 7px; }
+.rc-rowlink { flex: 1 1 0; min-width: 0; color: inherit; text-decoration: none; }
+.rc-rowlink strong { display: block; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rc-rowlink span { display: block; margin-top: 2px; font-family: var(--rc-mono); font-size: 11px; color: var(--rc-muted); }
+.rc-empty { margin-top: 18px; border: 1px dashed var(--rc-line); border-radius: 10px; padding: 32px 16px; text-align: center;
+  background: var(--rc-panel); }
+.rc-empty strong { display: block; font-size: 15px; }
+.rc-empty p { margin: 4px 0 0; color: var(--rc-muted); }

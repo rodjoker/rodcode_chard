@@ -1,27 +1,9 @@
-/* Editor de diagramas. Tokens propios; claro/oscuro según el sistema. */
-.rc {
-  --rc-bg: #e9eeec; --rc-panel: #f7f9f8; --rc-line: #d3dbd8; --rc-ink: #1b2b2a; --rc-muted: #5d716e;
-  --rc-accent: #0b6f8f; --rc-accent-soft: #d8eef5; --rc-flow: #8f2fa6; --rc-paper: #ffffff;
-  --rc-grid: #bcc8c4; --rc-queue: rgba(11, 111, 143, 0.05); --rc-badge: #0b5575;
-  --rc-note: #fbe48a; --rc-note-ink: #4a3d05; --rc-danger: #b3261e; --rc-ok: #1c7a4f; --rc-onaccent: #ffffff;
-  --rc-mono: ui-monospace, 'JetBrains Mono', Consolas, monospace;
-}
-@media (prefers-color-scheme: dark) {
-  .rc {
-    --rc-bg: #0f1819; --rc-panel: #162224; --rc-line: #2a3b3d; --rc-ink: #dde9e6; --rc-muted: #8ea5a1;
-    --rc-accent: #55c4e3; --rc-accent-soft: #17343d; --rc-flow: #d98ae9; --rc-paper: #1c2a2c;
-    --rc-grid: #2c3e40; --rc-queue: rgba(85, 196, 227, 0.07); --rc-badge: #1d7396;
-    --rc-note: #6d5f1d; --rc-note-ink: #fbeeb0; --rc-danger: #ff8a80; --rc-ok: #6fd6a3; --rc-onaccent: #06232c;
-  }
-}
+/* Editor de diagramas. Los tokens y los botones están en app/rc-theme.css. */
 
 .rc { display: grid; height: 100vh; height: 100dvh; background: var(--rc-bg); color: var(--rc-ink); font-size: 14px;
   grid-template-columns: 236px minmax(0, 1fr) 252px; grid-template-rows: auto minmax(0, 1fr);
   grid-template-areas: 'top top top' 'pal cv props'; }
 .rc *, .rc *::before, .rc *::after { box-sizing: border-box; }
-.rc button, .rc input, .rc textarea { font: inherit; color: inherit; }
-.rc button { cursor: pointer; }
-.rc :focus-visible { outline: 2px solid var(--rc-accent); outline-offset: 2px; }
 
 .rc-top { grid-area: top; display: flex; align-items: center; flex-wrap: wrap; gap: 8px 14px; padding: 8px 16px;
   background: var(--rc-panel); border-bottom: 1px solid var(--rc-line); }
@@ -32,12 +14,6 @@
 .rc-title:hover { border-color: var(--rc-line); }
 .rc-grp { display: flex; align-items: center; gap: 4px; }
 .rc-sp { flex: 1 1 0; }
-.rc-btn { background: var(--rc-paper); border: 1px solid var(--rc-line); border-radius: 7px; padding: 6px 10px;
-  min-height: 32px; line-height: 1.1; white-space: nowrap; }
-.rc-btn:hover:not(:disabled) { border-color: var(--rc-accent); }
-.rc-btn:disabled { opacity: 0.4; cursor: default; }
-.rc-btn.pri { background: var(--rc-accent); border-color: var(--rc-accent); color: var(--rc-onaccent); }
-.rc-btn.dng { color: var(--rc-danger); }
 .rc-status { font-family: var(--rc-mono); font-size: 11px; color: var(--rc-muted); min-width: 84px; text-align: right; }
 .rc-status.err { color: var(--rc-danger); }
 .rc-status.ok { color: var(--rc-ok); }
